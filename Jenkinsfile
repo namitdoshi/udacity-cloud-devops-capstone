@@ -30,8 +30,12 @@ pipeline {
     }
     stage('Push to Docker hub') {
       steps {
-        
-      }
+				withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'docker-creds', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]){
+					sh '''
+						docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+						docker push namitdoshi/udacity-devops-capstone
+					'''
+				}
     }
   }
 }
