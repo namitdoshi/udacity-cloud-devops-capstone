@@ -16,10 +16,11 @@ pipeline {
     stage('Build Image') {
       steps {
         withCredentials([usernamePassword( credentialsId: 'docker-creds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-          sh 'ls'
+          // sh 'ls'
           echo 'Building Image...'
-          sh 'chmod +x ./run_docker.sh'
-          sh ./run_docker.sh
+          // sh 'chmod +x ./run_docker.sh'
+          // sh './run_docker.sh'
+          sh 'docker build --tag=namitdoshi/udacity-devops-capstone'
           echo 'build complete'
         }
       }
