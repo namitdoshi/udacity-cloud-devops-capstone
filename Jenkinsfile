@@ -20,7 +20,7 @@ pipeline {
           echo 'Building Image...'
           // sh 'chmod +x ./run_docker.sh'
           // sh './run_docker.sh'
-          sh 'docker build --tag=namitdoshi/udacity-devops-capstone'
+          sh 'docker build -t namitdoshi/udacity-devops-capstone'
           echo 'build complete'
         }
       }
