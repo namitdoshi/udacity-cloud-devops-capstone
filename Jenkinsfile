@@ -16,8 +16,9 @@ pipeline {
     stage('Build Image') {
       steps {
         withCredentials([usernamePassword( credentialsId: 'docker-creds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-          echo '${USERNAME}'
+          echo USERNAME
           echo 'Building Image...'
+          sh 'chmod +x ./run_docker.sh'
           sh './run_docker.sh'
           echo 'build complete'
         }
