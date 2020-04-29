@@ -19,8 +19,11 @@ pipeline {
           // sh 'ls'
           echo 'Building Image...'
           // sh 'chmod +x ./run_docker.sh'
-          sh 'sudo docker images'
+          // sh 'docker images ls'
           // sh 'docker build -t namitdoshi/udacity-devops-capstone:v1'
+          script {
+            dockerImage = docker.build registry + ":$BUILD_NUMBER"
+          }
           echo 'build complete'
         }
       }
