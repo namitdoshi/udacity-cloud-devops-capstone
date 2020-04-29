@@ -19,8 +19,8 @@ pipeline {
           // sh 'ls'
           echo 'Building Image...'
           // sh 'chmod +x ./run_docker.sh'
-          // sh './run_docker.sh'
-          sh 'docker build -t namitdoshi/udacity-devops-capstone'
+          sh 'docker images'
+          // sh 'docker build -t namitdoshi/udacity-devops-capstone:v1'
           echo 'build complete'
         }
       }
