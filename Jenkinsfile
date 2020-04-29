@@ -36,6 +36,7 @@ pipeline {
 						docker push namitdoshi/udacity-devops-capstone
 					'''
 				}
+      }
     }
   }
 }
