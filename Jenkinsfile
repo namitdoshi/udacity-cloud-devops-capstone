@@ -19,7 +19,7 @@ pipeline {
           sh 'ls'
           echo 'Building Image...'
           sh 'chmod +x ./run_docker.sh'
-          sh './run_docker.sh'
+          sh ./run_docker.sh
           echo 'build complete'
         }
       }
