@@ -28,5 +28,10 @@ pipeline {
         }
       }
     }
+    stage('Push to Docker hub') {
+      steps {
+        
+      }
+    }
   }
 }
