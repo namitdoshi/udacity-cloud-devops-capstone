@@ -18,8 +18,8 @@ pipeline {
         withCredentials([usernamePassword( credentialsId: 'docker-creds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
           sh 'ls'
           echo 'Building Image...'
-          sh 'chmod +x run_docker.sh'
-          sh 'run_docker.sh'
+          sh 'chmod +x ./run_docker.sh'
+          sh './run_docker.sh'
           echo 'build complete'
         }
       }
