@@ -8,5 +8,11 @@ pipeline {
         echo "lint complete"
       }
     }
+    stage('Build Image') {
+      steps {
+        echo "Building Image..."
+        
+      }
+    }
   }
 }
