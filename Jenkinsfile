@@ -3,7 +3,9 @@ pipeline {
   stages {
     stage('Lint Dockerfile') {
       steps {
-        sh 'hadolint Dockerfile'
+        echo "linting..."
+        sh 'hadolint --ignore DL4000 Dockerfile'
+        echo "lint complete"
       }
     }
   }
