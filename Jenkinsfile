@@ -1,17 +1,21 @@
 pipeline {
+  environment {
+    registry = "namitdoshi/udacity-devops-capstone"
+    registryCredential = 'docker-creds'
+  }
+
   agent any
   stages {
     stage('Lint Dockerfile') {
       steps {
-        echo "linting..."
+        echo 'linting...'
         sh 'hadolint --ignore DL4000 Dockerfile'
-        echo "lint complete"
+        echo 'lint complete'
       }
     }
     stage('Build Image') {
       steps {
-        echo "Building Image..."
-        
+        echo 'Building Image...'
       }
     }
   }
