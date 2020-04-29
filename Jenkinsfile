@@ -15,7 +15,12 @@ pipeline {
     }
     stage('Build Image') {
       steps {
-        echo 'Building Image...'
+        withCredentials([usernamePassword( credentialsId: 'docker-creds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+          echo '${USERNAME}'
+          echo 'Building Image...'
+          sh './run_docker.sh'
+          echo 'build complete'
+        }
       }
     }
   }
