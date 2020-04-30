@@ -73,13 +73,13 @@ pipeline {
         }
       }
     }
-    // stage('create service for green deployment') {
-    //   steps {
-    //     		withAWS(region:'us-west-2', credentials:'aws-creds') {
-    //           echo 'creating green service'
-		// 			    sh 'kubectl apply -f ./green-service.json'
-		// 		}
-    //   }
-    // }
+    stage('create service for green deployment') {
+      steps {
+        		withAWS(region:'us-west-2', credentials:'aws-creds') {
+              echo 'creating green service'
+					    sh 'kubectl apply -f ./green-service.json'
+				}
+      }
+    }
   }
 }
