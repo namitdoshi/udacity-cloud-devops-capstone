@@ -41,7 +41,7 @@ pipeline {
     stage('Set Kubectl Context') {
       steps {
 				withAWS(region:'us-west-2', credentials:'aws-creds') {
-					sh 'kubectl config use-context arn:aws:eks:us-west-2:771473564594:cluster/capstonecluster'
+					sh 'kubectl config use-context arn:aws:eks:us-west-2:771473564594:cluster/udacity-capstone-cluster'
           echo 'kubectl context setup complete!'
 				}
 			}
