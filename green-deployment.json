@@ -23,7 +23,7 @@
            "containers":[
               {
                  "name":"green",
-                 "image":"namitdoshi/udacity-devops-capstone:21",
+                 "image":"namitdoshi/udacity-devops-capstone:6",
                  "ports":[
                     {
                        "name":"http-server",
