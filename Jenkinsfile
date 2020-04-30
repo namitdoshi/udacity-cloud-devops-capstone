@@ -21,9 +21,9 @@ pipeline {
           // sh 'chmod +x ./run_docker.sh'
           // sh 'docker images ls'
           // sh 'docker build -t namitdoshi/udacity-devops-capstone:v1'
-          script {
-            dockerImage = docker.build registry + ":$BUILD_NUMBER"
-          }
+          withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'docker-creds', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]){
+					  sh 'docker build -t namitdoshi/udacity-devops-capstone .'
+				  }
           echo 'build complete'
         }
       }
