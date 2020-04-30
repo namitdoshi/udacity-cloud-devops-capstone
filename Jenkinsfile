@@ -41,21 +41,20 @@ pipeline {
     // stage('Set Kubectl Context') {
     //   steps {
 		// 		withAWS(region:'us-west-2', credentials:'aws-creds') {
-		// 			sh '''
-		// 				kubectl config use-context arn:aws:eks:us-west-2:771473564594:cluster/capstonecluster
-		// 			'''
+		// 			sh 'kubectl config use-context arn:aws:eks:us-west-2:771473564594:cluster/capstonecluster'
     //       echo 'kubectl context setup complete!'
 		// 		}
 		// 	}
     // }
-    stage('Blue container deployment') {
-      steps {
-        withAWS(region:'us-west-2', credentials:'aws-creds') {
-          echo 'deploying blue container'
-					sh 'kubectl apply -f ./blue-deployment.json'
-          echo 'blue container deployed'
-				}
-      }
-    }
+    // stage('Blue container deployment') {
+    //   steps {
+    //     withAWS(region:'us-west-2', credentials:'aws-creds') {
+    //       echo 'deploying blue container'
+		// 			sh 'kubectl apply -f ./blue-deployment.json'
+    //       echo 'blue container deployed'
+		// 		}
+    //   }
+    // }
+
   }
 }
