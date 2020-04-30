@@ -66,7 +66,11 @@ pipeline {
     // }
     stage('create service for blue deployment') {
       steps {
-        
+        withAWS(region: 'us-west-2', credentials: 'aws-creds') {
+          echo 'creating blue service'
+          sh 'kubectl apply -f ./blue-service.json'
+          echo 'blue service created'
+        }
       }
     }
   }
