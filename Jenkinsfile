@@ -52,7 +52,7 @@ pipeline {
       steps {
         withAWS(region:'us-west-2', credentials:'aws-creds') {
 					sh '''
-						kubectl apply -f ./blue-controller.json
+						kubectl apply -f ./blue-deployment.json
 					'''
 				}
       }
