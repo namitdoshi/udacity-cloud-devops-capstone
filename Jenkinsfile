@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "namitdoshi/udacity-devops-capstone"
+    registry = "namitdoshi/udacity-capstone"
     registryCredential = 'docker-creds'
   }
 
@@ -22,7 +22,7 @@ pipeline {
           // sh 'docker images ls'
           // sh 'docker build -t namitdoshi/udacity-devops-capstone:v1'
           withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'docker-creds', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]){
-					  sh 'docker build -t namitdoshi/udacity-devops-capstone .'
+					  sh 'docker build -t namitdoshi/udacity-capstone .'
 				  }
           echo 'build complete'
         }
@@ -33,7 +33,7 @@ pipeline {
 				withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'docker-creds', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]){
 					sh '''
 						docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-						docker push namitdoshi/udacity-devops-capstone
+						docker push namitdoshi/udacity-capstone
 					'''
 				}
       }
