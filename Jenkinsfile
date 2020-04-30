@@ -55,6 +55,8 @@ pipeline {
 		// 		}
     //   }
     // }
-
+    stage ('Green Container Deployment' ) {
+      
+    }
   }
 }
