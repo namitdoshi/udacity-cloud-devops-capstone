@@ -73,6 +73,12 @@ pipeline {
         }
       }
     }
+    stage('intermediate wait') {
+      steps {
+        echo 'wait form 20 seconds before switching'
+        sleep 20
+      }
+    }
     stage('create service for green deployment') {
       steps {
         		withAWS(region:'us-west-2', credentials:'aws-creds') {
