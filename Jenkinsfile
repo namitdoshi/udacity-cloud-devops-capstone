@@ -9,7 +9,7 @@ pipeline {
     stage('Lint Dockerfile') {
       steps {
         echo 'linting...'
-        sh 'hadolint --ignore DL4000 --ignore DL3004 --ignore DL3006 Dockerfile'
+        sh 'hadolint --ignore DL4000 --ignore DL3006 Dockerfile'
         echo 'lint complete'
       }
     }
