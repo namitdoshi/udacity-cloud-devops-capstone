@@ -56,7 +56,11 @@ pipeline {
     //   }
     // }
     stage ('Green Container Deployment' ) {
-      
+      steps {
+        withAWS(region:'us-west-2', credentials:'aws-creds') {
+					sh 'kubectl apply -f ./green-deployment.json'
+				}
+      }
     }
   }
 }
