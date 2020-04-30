@@ -51,9 +51,9 @@ pipeline {
     stage('Blue container deployment') {
       steps {
         withAWS(region:'us-west-2', credentials:'aws-creds') {
-					sh '''
-						kubectl apply -f ./blue-deployment.json
-					'''
+          echo 'deploying blue container'
+					sh 'kubectl apply -f ./blue-deployment.json'
+          echo 'blue container deployed'
 				}
       }
     }
