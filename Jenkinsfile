@@ -55,23 +55,23 @@ pipeline {
 		// 		}
     //   }
     // }
-    // stage ('Green Container Deployment' ) {
-    //   steps {
-    //     withAWS(region:'us-west-2', credentials:'aws-creds') {
-    //       echo 'creting green deployment'
-		// 			sh 'kubectl apply -f ./green-deployment.json'
-    //       echo 'green container deployed!'
-		// 		}
-    //   }
-    // }
-    // stage('create service for blue deployment') {
-    //   steps {
-    //     withAWS(region: 'us-west-2', credentials: 'aws-creds') {
-    //       echo 'creating blue service'
-    //       sh 'kubectl apply -f ./blue-service.json'
-    //       echo 'blue service created'
-    //     }
-    //   }
-    // }
+    stage ('Green Container Deployment' ) {
+      steps {
+        withAWS(region:'us-west-2', credentials:'aws-creds') {
+          echo 'creting green deployment'
+					sh 'kubectl apply -f ./green-deployment.json'
+          echo 'green container deployed!'
+				}
+      }
+    }
+    stage('create service for blue deployment') {
+      steps {
+        withAWS(region: 'us-west-2', credentials: 'aws-creds') {
+          echo 'creating blue service'
+          sh 'kubectl apply -f ./blue-service.json'
+          echo 'blue service created'
+        }
+      }
+    }
   }
 }
